@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block info %}
+    <strong>Books: </strong> {{ num_books }}
+{% endblock %}
+
+{% block content %} 
+    <h2>Book list</h2>
+
+    {% if books %}
+        <ul>
+
+            {% for book in books %} 
+                <li>
+                    <a href="#">{{ book.title }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+    {%else%}
+        <p>no books, sorry</p>
+    {% endif %}
+{% endblock %}

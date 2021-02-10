@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        {% block title %}<title>Books</title>{% endblock %}
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+
+        {% block bar %}
+            <a href="{% url 'index' %}">Home</a>
+        {% endblock %}
+
+        
+
+        {% block info %}    
+        {% endblock %}
+
+        <hr>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+
+
+</html>
