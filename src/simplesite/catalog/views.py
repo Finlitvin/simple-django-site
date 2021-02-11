@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.views import generic
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
-#from .forms import AddBookForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import UserForm
 from .models import Book
 
 
@@ -21,16 +22,19 @@ class BookAboutView(generic.DetailView):
     context_object_name = 'book'
     template_name = 'about_book.html'
 
-class BookCreate(CreateView):
+class BookCreate(LoginRequiredMixin, CreateView):
     model = Book
     template_name = 'book_form.html'
     fields = '__all__'
+    login_url = '/accounts/login/'
+    redirect_field_name = '/catalog/add/'
 
 class UserCreate(CreateView):
-    model = User
+    form_class = UserForm
     template_name = 'user_create_form.html'
     success_url = '/'
-    fields = ['username','first_name','last_name','email','password']
+
+
 
 
 ######## or ########

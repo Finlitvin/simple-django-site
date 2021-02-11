@@ -1,7 +1,16 @@
 from django.forms import ModelForm
-from .models import Book
+#from .models import Book
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class AddBookForm(ModelForm):
+class UserForm(UserCreationForm):
     class Meta:
-        model = Book
-        fields = ['title', 'about_text',]
+        model = User
+        fields = ['username']
+
+
+
+#class AddBookForm(ModelForm):
+#    class Meta:
+#        model = Book
+#        fields = ['title', 'about_text',]
