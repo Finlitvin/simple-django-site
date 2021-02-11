@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.views.generic.edit import CreateView
+from django.contrib.auth.models import User
 #from .forms import AddBookForm
 from .models import Book
 
@@ -25,7 +26,11 @@ class BookCreate(CreateView):
     template_name = 'book_form.html'
     fields = '__all__'
 
-
+class UserCreate(CreateView):
+    model = User
+    template_name = 'user_create_form.html'
+    success_url = '/'
+    fields = ['username','first_name','last_name','email','password']
 
 
 ######## or ########
