@@ -10,7 +10,6 @@ from .models import Book
 class IndexView(generic.ListView):
     model = Book
     context_object_name = 'books'
-    template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
@@ -20,11 +19,9 @@ class IndexView(generic.ListView):
 class BookAboutView(generic.DetailView):
     model = Book
     context_object_name = 'book'
-    template_name = 'about_book.html'
 
 class BookCreate(LoginRequiredMixin, CreateView):
     model = Book
-    template_name = 'book_form.html'
     fields = '__all__'
     login_url = '/accounts/login/'
     redirect_field_name = '/catalog/add/'
